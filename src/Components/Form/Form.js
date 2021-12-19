@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from "react-bootstrap/ToggleButton";
+import InputGroup from "react-bootstrap/InputGroup"
 
 export default function RequestForm(props) {
   const { handleSubmit } = props
@@ -16,16 +17,24 @@ export default function RequestForm(props) {
     { name: 'DELETE', value: 'DELETE' },
   ];
 
+  // Loading button while waiting on request
+  // https://react-bootstrap.github.io/components/buttons/#button-loading-state
+
+  // Input Groups
+  // https://react-bootstrap.github.io/components/input-group/#input-group
+
+  //
+
   return (
     <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Url</Form.Label>
-        <Form.Control value={input} onChange={e => setInput(e.target.value)} required type="url" placeholder="https://example.com" />
-        <Form.Text className="text-muted">
-          Enter the full url of the resource you would like to explore
-        </Form.Text>
+      <Form.Group className="m-3" controlId="formBasicEmail">
+        <InputGroup>
+          <InputGroup.Text>URL</InputGroup.Text>
+          <Form.Control value={input} onChange={e => setInput(e.target.value)} required type="url" placeholder="https://example.com"/>
+          <Button onClick={() => handleSubmit(radioValue, input)} variant="outline-primary" type="button">Submit</Button>
+        </InputGroup>
       </Form.Group>
-      <ButtonGroup className="mb-2">
+      <ButtonGroup vertical={!(window.screen.width > 320)} className="mb-2">
         {radios.map((radio, idx) => (
           <ToggleButton
             key={idx}
@@ -38,7 +47,7 @@ export default function RequestForm(props) {
             onChange={(e) => setRadioValue(e.currentTarget.value)}
           >{radio.name}</ToggleButton>))}
       </ButtonGroup>
-      <Button onClick={() => handleSubmit(radioValue, input)} className="mb-2" type="button">Submit</Button>
+      
     </Form>
   )
 }
