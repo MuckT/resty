@@ -23,8 +23,6 @@ export default function RequestForm(props) {
   // Input Groups
   // https://react-bootstrap.github.io/components/input-group/#input-group
 
-  //
-
   return (
     <Form>
       <Form.Group className="m-3" controlId="formBasicEmail">
@@ -45,7 +43,8 @@ export default function RequestForm(props) {
             value={radio.value}
             checked={radioValue === radio.value}
             onChange={(e) => setRadioValue(e.currentTarget.value)}
-          >{radio.name}</ToggleButton>))}
+          >{radio.name}
+        </ToggleButton>))}
       </ButtonGroup>
       
     </Form>

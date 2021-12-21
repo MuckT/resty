@@ -1,8 +1,11 @@
-import React, { useState } from "react";
-import RequestForm from './Components/Form/Form'
-import Response  from './Components/Results/Results'
+import React from 'react';
+import './App.scss';
+import Footer from './Components/Footer/Footer';
+import RequestForm from './Components/Form/Form';
+import Header from './Components/Header/Header';
+import Response from './Components/Results/Results';
+const axios = require('axios');
 
-import './App.scss'
 
 class App extends React.Component {
   constructor(props) {
@@ -10,23 +13,30 @@ class App extends React.Component {
     this.state = {
       url: '',
       method: 'GET',
-      response: []
+      results: null
     }
   }
 
-  handleSubmit = async (method, url, response) => {
+  handleSubmit = async (method, url, body = {}) => {
+    let response = await axios({
+      method: method,
+      url: url,
+      data: body
+    })
     this.setState({
       url: url,
       method: method,
-      response: response
+      results: response
     })
   }
 
   render() {
     return (
       <div className="App">
+        <Header />
         <RequestForm handleSubmit={this.handleSubmit}/>
-        <Response />
+        <Response results={this.state.results}/>
+        <Footer />
       </div>
     );
   }
