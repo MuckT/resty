@@ -330,5 +330,3 @@ Object {
   "unmount": [Function],
 }
 `;
-
-exports[`should render after change 1`] = `undefined`;
