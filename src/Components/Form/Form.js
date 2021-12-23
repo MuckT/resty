@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
@@ -8,7 +8,7 @@ import InputGroup from "react-bootstrap/InputGroup"
 export default function RequestForm(props) {
   const { handleSubmit } = props
   const [input, setInput] = useState('')
-  const [radioValue, setRadioValue] = useState('');
+  const [radioValue, setRadioValue] = useState('GET');
   const radios = [
     { name: 'GET', value: 'GET' },
     { name: 'POST', value: 'POST' },
@@ -25,7 +25,7 @@ export default function RequestForm(props) {
 
   return (
     <Form>
-      <Form.Group className="m-3" controlId="formBasicEmail">
+      <Form.Group className="m-3" controlId="testFormUrlInput">
         <InputGroup>
           <InputGroup.Text>URL</InputGroup.Text>
           <Form.Control value={input} onChange={e => setInput(e.target.value)} required type="url" placeholder="https://example.com"/>

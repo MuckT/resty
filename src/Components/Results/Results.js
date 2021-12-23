@@ -1,8 +1,16 @@
+import Spinner from 'react-bootstrap/Spinner';
+
 export default function Results(props) {
-  const { results } = props
+  const { results, isLoading } = props
   return (
     <section>
-      <pre style={styles.response}>{results ? JSON.stringify(results, undefined, 2) : null}</pre>
+      { isLoading 
+        ? 
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        : <pre style={styles.response}>{results ? JSON.stringify(results, undefined, 2) : null}</pre>
+      }
     </section>
   )
 }
