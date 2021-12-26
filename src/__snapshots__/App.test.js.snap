@@ -139,9 +139,7 @@ Object {
             />
           </section>
         </div>
-        <footer
-          id="footer"
-        >
+        <footer>
           © 2021
         </footer>
       </div>
@@ -282,9 +280,7 @@ Object {
           />
         </section>
       </div>
-      <footer
-        id="footer"
-      >
+      <footer>
         © 2021
       </footer>
     </div>
