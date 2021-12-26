@@ -13,6 +13,152 @@ Object {
             RESTy
           </h1>
         </header>
+        <div
+          class="main"
+        >
+          <form
+            class=""
+          >
+            <div
+              class="m-3"
+            >
+              <div
+                class="input-group"
+              >
+                <span
+                  class="input-group-text"
+                >
+                  URL
+                </span>
+                <input
+                  class="form-control"
+                  id="testFormUrlInput"
+                  placeholder="https://example.com"
+                  required=""
+                  type="url"
+                  value=""
+                />
+                <button
+                  class="btn btn-outline-primary"
+                  type="button"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+            <div
+              class="mb-2 btn-group-vertical"
+              role="group"
+            >
+              <input
+                autocomplete="off"
+                checked=""
+                class="btn-check"
+                id="radio-0"
+                name="radio"
+                type="radio"
+                value="GET"
+              />
+              <label
+                class="btn btn-outline-primary"
+                for="radio-0"
+                role="button"
+                tabindex="0"
+              >
+                GET
+              </label>
+              <input
+                autocomplete="off"
+                class="btn-check"
+                id="radio-1"
+                name="radio"
+                type="radio"
+                value="POST"
+              />
+              <label
+                class="btn btn-outline-primary"
+                for="radio-1"
+                role="button"
+                tabindex="0"
+              >
+                POST
+              </label>
+              <input
+                autocomplete="off"
+                class="btn-check"
+                id="radio-2"
+                name="radio"
+                type="radio"
+                value="PUT"
+              />
+              <label
+                class="btn btn-outline-primary"
+                for="radio-2"
+                role="button"
+                tabindex="0"
+              >
+                PUT
+              </label>
+              <input
+                autocomplete="off"
+                class="btn-check"
+                id="radio-3"
+                name="radio"
+                type="radio"
+                value="PATCH"
+              />
+              <label
+                class="btn btn-outline-primary"
+                for="radio-3"
+                role="button"
+                tabindex="0"
+              >
+                PATCH
+              </label>
+              <input
+                autocomplete="off"
+                class="btn-check"
+                id="radio-4"
+                name="radio"
+                type="radio"
+                value="DELETE"
+              />
+              <label
+                class="btn btn-outline-primary"
+                for="radio-4"
+                role="button"
+                tabindex="0"
+              >
+                DELETE
+              </label>
+            </div>
+          </form>
+          <section>
+            <pre
+              id="results"
+            />
+          </section>
+        </div>
+        <footer
+          id="footer"
+        >
+          © 2021
+        </footer>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="App"
+    >
+      <header>
+        <h1>
+          RESTy
+        </h1>
+      </header>
+      <div
+        class="main"
+      >
         <form
           class=""
         >
@@ -132,147 +278,13 @@ Object {
         </form>
         <section>
           <pre
-            style="text-align: left;"
+            id="results"
           />
         </section>
-        <footer>
-          © 2021
-        </footer>
       </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="App"
-    >
-      <header>
-        <h1>
-          RESTy
-        </h1>
-      </header>
-      <form
-        class=""
+      <footer
+        id="footer"
       >
-        <div
-          class="m-3"
-        >
-          <div
-            class="input-group"
-          >
-            <span
-              class="input-group-text"
-            >
-              URL
-            </span>
-            <input
-              class="form-control"
-              id="testFormUrlInput"
-              placeholder="https://example.com"
-              required=""
-              type="url"
-              value=""
-            />
-            <button
-              class="btn btn-outline-primary"
-              type="button"
-            >
-              Submit
-            </button>
-          </div>
-        </div>
-        <div
-          class="mb-2 btn-group-vertical"
-          role="group"
-        >
-          <input
-            autocomplete="off"
-            checked=""
-            class="btn-check"
-            id="radio-0"
-            name="radio"
-            type="radio"
-            value="GET"
-          />
-          <label
-            class="btn btn-outline-primary"
-            for="radio-0"
-            role="button"
-            tabindex="0"
-          >
-            GET
-          </label>
-          <input
-            autocomplete="off"
-            class="btn-check"
-            id="radio-1"
-            name="radio"
-            type="radio"
-            value="POST"
-          />
-          <label
-            class="btn btn-outline-primary"
-            for="radio-1"
-            role="button"
-            tabindex="0"
-          >
-            POST
-          </label>
-          <input
-            autocomplete="off"
-            class="btn-check"
-            id="radio-2"
-            name="radio"
-            type="radio"
-            value="PUT"
-          />
-          <label
-            class="btn btn-outline-primary"
-            for="radio-2"
-            role="button"
-            tabindex="0"
-          >
-            PUT
-          </label>
-          <input
-            autocomplete="off"
-            class="btn-check"
-            id="radio-3"
-            name="radio"
-            type="radio"
-            value="PATCH"
-          />
-          <label
-            class="btn btn-outline-primary"
-            for="radio-3"
-            role="button"
-            tabindex="0"
-          >
-            PATCH
-          </label>
-          <input
-            autocomplete="off"
-            class="btn-check"
-            id="radio-4"
-            name="radio"
-            type="radio"
-            value="DELETE"
-          />
-          <label
-            class="btn btn-outline-primary"
-            for="radio-4"
-            role="button"
-            tabindex="0"
-          >
-            DELETE
-          </label>
-        </div>
-      </form>
-      <section>
-        <pre
-          style="text-align: left;"
-        />
-      </section>
-      <footer>
         © 2021
       </footer>
     </div>

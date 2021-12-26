@@ -12,27 +12,46 @@ function App() {
     {
       'url': '',
       'method': 'GET',
-      'results': null
+      'results': null,
+      'status': null
     }
   )
+
   const [isLoading, setLoading] = useState(false)
 
   const handleSubmit = async (method, url, body = {}) => {
-    setLoading(true)
-    let response = await axios({
-      method: method,
-      url: url,
-      data: body
-    })
-    setAppState({ ...response })
-    setLoading(false)
+    try {
+      setLoading(true)
+      let response = await axios({
+        method: method,
+        url: url,
+        data: body,
+        validateStatus: function (status) {
+          return status;
+        }
+      })
+      setAppState(
+        {
+          'method': method,
+          'url': url,
+          'results': response.data,
+          'status': response.status
+        }
+      )
+    } catch (error) {
+      console.warn(error)
+    } finally {
+      setLoading(false)
+    }
   } 
 
   return (
     <div className="App">
       <Header />
-      <RequestForm handleSubmit={handleSubmit}/>
-      <Response results={appState.results} isLoading={isLoading}/>
+      <div className="main">
+        <RequestForm handleSubmit={handleSubmit}/>
+        <Response status={appState.status} results={appState.results} isLoading={isLoading}/>
+      </div>
       <Footer />
     </div>
   );
