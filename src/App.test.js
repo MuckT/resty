@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import App from './App';
 import RequestForm from './Components/Form/Form'
 
@@ -7,13 +7,6 @@ it('renders RESTy header', () => {
   const linkElement = screen.getByText("RESTy");
   expect(linkElement).toBeInTheDocument();
 });
-
-it('able to type into the url input', () => {
-  render(<App />);
-  const input = screen.getByRole('textbox')
-  fireEvent.submit(input, {target: {value: 'https://pokeapi.co/api/v2/'}})
-  expect(screen.getByDisplayValue(/https:\/\/pokeapi\.co\/api\/v2\//i)).toBeTruthy()
-})
 
 it('should invoke handleSubmit with correct parameters', () => {
   const mockFn = jest.fn();

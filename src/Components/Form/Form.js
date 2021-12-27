@@ -17,6 +17,12 @@ export default function RequestForm(props) {
     { name: 'DELETE', value: 'DELETE' },
   ];
 
+  // Form submit prevent clearing url and handle {enter} on form
+  const fnHandleSubmit = event => {
+    event.preventDefault();
+    handleSubmit(radioValue, input)
+  }
+
   // Loading button while waiting on request
   // https://react-bootstrap.github.io/components/buttons/#button-loading-state
 
@@ -24,7 +30,7 @@ export default function RequestForm(props) {
   // https://react-bootstrap.github.io/components/input-group/#input-group
 
   return (
-    <Form>
+    <Form onSubmit={fnHandleSubmit}>
       <Form.Group className="m-3" controlId="testFormUrlInput">
         <InputGroup>
           <InputGroup.Text>URL</InputGroup.Text>
