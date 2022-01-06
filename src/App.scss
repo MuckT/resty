@@ -1,0 +1,25 @@
+@import "custom";
+
+.App {
+  height: 100vh;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer'
+}
+
+.App header {
+  grid-area: header;
+}
+
+.App main {
+  grid-area: main;
+}
+
+.App footer{
+  grid-area: footer;
+}
