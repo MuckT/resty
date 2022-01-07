@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import Footer from './Components/Footer/Footer';
 import RequestForm from './Components/Form/Form';
 import Header from './Components/Header/Header';
 import Response from './Components/Results/Results';
-const axios = require('axios');
+import History from './Components/History/History';
 
+const axios = require('axios');
 
 function App() {
   const [appState, setAppState] = useState(
@@ -13,7 +14,8 @@ function App() {
       'url': '',
       'method': 'GET',
       'results': null,
-      'status': null
+      'status': null,
+      'history': []
     }
   )
 
@@ -30,12 +32,20 @@ function App() {
           return status;
         }
       })
+      // Create result to use for history
+      const result = {
+        'method': method,
+        'url': url,
+        'results': response.data,
+        'status': response.status
+      }
       setAppState(
         {
           'method': method,
           'url': url,
           'results': response.data,
-          'status': response.status
+          'status': response.status,
+          'history': [...appState.history, result]
         }
       )
     } catch (error) {
@@ -43,7 +53,19 @@ function App() {
     } finally {
       setLoading(false)
     }
-  } 
+  }
+  
+  const historyClick = (historyItem) => {
+    setAppState(
+      {
+        'method': historyItem.method,
+        'url': historyItem.url,
+        'results': historyItem.results,
+        'status': historyItem.status,
+        'history': appState.history
+      }
+    )
+  }
 
   return (
     <div className="App">
@@ -51,6 +73,7 @@ function App() {
       <div className="main">
         <RequestForm handleSubmit={handleSubmit}/>
         <Response status={appState.status} results={appState.results} isLoading={isLoading}/>
+        {appState.history.length ? <History historyClick={historyClick} history={appState.history}></History> : null}
       </div>
       <Footer />
     </div>
