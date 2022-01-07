@@ -5,7 +5,7 @@ import './History.scss';
 export default function History(props) {
   const { history, historyClick } = props
   return (
-    <div className="d-grid gap-2 m-2">
+    <section data-cy="history" className="d-grid gap-2 m-2">
       {history.map((item, idx) => {
         return(
           <Button key={idx} onClick={() => historyClick(item)} variant="secondary" size="lg">
@@ -13,6 +13,6 @@ export default function History(props) {
           </Button>
         )   
       })}
-    </div>
+    </section>
   )
 }
