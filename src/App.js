@@ -73,7 +73,7 @@ function App() {
       <div className="main">
         <RequestForm handleSubmit={handleSubmit}/>
         <Response status={appState.status} results={appState.results} isLoading={isLoading}/>
-        <History historyClick={historyClick} history={appState.history}></History>
+        {appState.history.length ? <History historyClick={historyClick} history={appState.history}></History> : null}
       </div>
       <Footer />
     </div>
